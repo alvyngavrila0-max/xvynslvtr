@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XVYN Admin Panel</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <main class="admin-shell">
+    <section class="login-card" id="login-view">
+      <p class="kicker">Backend Admin</p>
+      <h1>XVYN Admin Panel</h1>
+      <p class="intro">Masuk untuk menambah, mengubah, dan menghapus produk best seller.</p>
+
+      <form id="login-form" class="admin-form">
+        <label>
+          Password Admin
+          <input type="password" name="password" placeholder="Masukkan password admin" required>
+        </label>
+        <button type="submit">Masuk</button>
+      </form>
+
+      <p class="feedback" id="login-feedback"></p>
+    </section>
+
+    <section class="dashboard" id="dashboard-view" hidden>
+      <header class="dashboard-top">
+        <div>
+          <p class="kicker">Dashboard</p>
+          <h2>Kelola Produk XVYN</h2>
+        </div>
+        <button type="button" class="ghost-btn" id="logout-btn">Logout</button>
+      </header>
+
+      <div class="dashboard-grid">
+        <section class="panel">
+          <h3>Tambah / Edit Produk</h3>
+          <p class="editor-state" id="editor-state">Mode tambah produk baru.</p>
+          <form id="product-form" class="admin-form">
+            <input type="hidden" name="id">
+
+            <label>
+              Kode Produk
+              <input type="text" name="code" placeholder="Contoh: RBL-501" required>
+            </label>
+
+            <label>
+              Judul Produk
+              <input type="text" name="title" placeholder="Contoh: Akun Sultan Limited" required>
+            </label>
+
+            <label>
+              Harga Rupiah
+              <input type="text" name="price" placeholder="Contoh: RP250.000" required>
+            </label>
+
+            <label>
+              Harga Ringgit
+              <input type="text" name="secondaryPrice" placeholder="Contoh: RM65">
+            </label>
+
+            <label>
+              Label Banner
+              <input type="text" name="banner" placeholder="Contoh: HANYA TERSEDIA DI WEBSITE!">
+            </label>
+
+            <label>
+              Link Checkout
+              <input type="url" name="checkoutLink" placeholder="https://wa.me/...">
+            </label>
+
+            <label>
+              Foto Produk
+              <input type="file" name="imageFile" accept="image/*">
+            </label>
+
+            <input type="hidden" name="imageData">
+            <div class="image-preview" id="image-preview">
+              <div class="image-placeholder">Belum ada foto dipilih</div>
+            </div>
+            <button type="button" class="ghost-btn" id="remove-image-btn">Hapus Foto</button>
+
+            <label>
+              Deskripsi
+              <textarea name="description" rows="5" placeholder="Tulis item utama akun atau deskripsi singkat"></textarea>
+            </label>
+
+            <div class="form-actions">
+              <button type="submit" id="submit-btn">Simpan Produk</button>
+              <button type="button" class="ghost-btn" id="reset-btn">Reset</button>
+            </div>
+          </form>
+
+          <p class="feedback" id="product-feedback"></p>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head">
+            <h3>Daftar Produk</h3>
+            <button type="button" class="ghost-btn" id="refresh-btn">Refresh</button>
+          </div>
+          <div class="product-list" id="product-list"></div>
+        </section>
+      </div>
+
+      <section class="panel banner-panel">
+        <div class="panel-head">
+          <h3>Banner Slider</h3>
+          <button type="button" class="ghost-btn" id="save-slider-btn">Simpan Banner</button>
+        </div>
+        <p class="intro small-intro">Upload foto khusus untuk banner slider `Slide 1` dan `Slide 2` di halaman buyer.</p>
+
+        <div class="banner-grid">
+          <div class="banner-upload-card">
+            <h4>Slide 1</h4>
+            <input type="file" id="slider-image-1-file" accept="image/*">
+            <input type="hidden" id="slider-image-1-data">
+            <div class="image-preview banner-preview" id="slider-image-1-preview">
+              <div class="image-placeholder">Belum ada foto Slide 1</div>
+            </div>
+            <button type="button" class="ghost-btn" id="clear-slider-1-btn">Hapus Foto Slide 1</button>
+          </div>
+
+          <div class="banner-upload-card">
+            <h4>Slide 2</h4>
+            <input type="file" id="slider-image-2-file" accept="image/*">
+            <input type="hidden" id="slider-image-2-data">
+            <div class="image-preview banner-preview" id="slider-image-2-preview">
+              <div class="image-placeholder">Belum ada foto Slide 2</div>
+            </div>
+            <button type="button" class="ghost-btn" id="clear-slider-2-btn">Hapus Foto Slide 2</button>
+          </div>
+        </div>
+
+        <p class="feedback" id="slider-feedback"></p>
+      </section>
+    </section>
+  </main>
+
+  <script src="admin.js"></script>
+</body>
+</html>
